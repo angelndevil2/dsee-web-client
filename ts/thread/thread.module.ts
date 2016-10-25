@@ -1,7 +1,3 @@
-/**
- * @author angelndevil2 on 16. 10. 24.
- */
-
 import { NgModule }      from '@angular/core';
 import { CommonModule }      from '@angular/common';
 import { FormsModule }   from '@angular/forms';
@@ -23,4 +19,17 @@ import {ThreadInfoComponent} from "./thread-info.component";
     exports : [ ThreadComponent, ThreadListComponent, ThreadInfoComponent ],
     providers: [  ]
 })
+
+/**
+ * module for thread information components
+ *
+ * exported components are
+ * <ul>
+ *     <li>{@link ThreadComponent}</li>
+ *     <li>{@link ThreadListComponent}</li>
+ *     <li>{@link ThreadInfoComponent}</li>
+ * </ul>
+ *
+ * @author angelndevil2 on 16. 10. 24.
+ */
 export class ThreadModule {}

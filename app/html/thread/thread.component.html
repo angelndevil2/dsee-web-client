@@ -1,3 +1,5 @@
 <div class="thread-list">
-    <thread-list></thread-list>
+    <thread-list [threads]="threads" [serverUrl]="serverUrl" (threadIdClick)="threadIdClicked($event)"></thread-list>
 </div>
+
+<thread-info [threadInfo]="threadInfo" *ngIf="threadInfo"></thread-info>

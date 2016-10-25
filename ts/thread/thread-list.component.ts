@@ -1,13 +1,5 @@
-/**
- * @author angelndevil2 on 16. 10. 24.
- */
-
-import {OnInit, Component} from "@angular/core";
 import {Thread} from "../dstruct/Thread";
-import {ThreadService} from "../service/thread.service";
-import {UrlService} from "../service/url.service";
-import {ThreadInfo} from "../dstruct/thread-info";
-
+import {Component, Input, EventEmitter, Output} from "@angular/core";
 
 @Component({
     selector: 'thread-list',
@@ -15,43 +7,33 @@ import {ThreadInfo} from "../dstruct/thread-info";
     styleUrls: ['styles/thread-list.component.css'],
 })
 
-export class ThreadListComponent implements OnInit {
+/**
+ * component for Thread List
+ *
+ * input - thread list {@link threads}
+ * output - {@link threadIdClick} event
+ *
+ * @author angelndevil2 on 16. 10. 24.
+ */
+export class ThreadListComponent {
 
-    private errorMessage : string;
-    public threads: Thread[];
-    public serverUrl : string;
-    public threadInfo : ThreadInfo;
+    @Input() public threads: Thread[];
+    @Input() public serverUrl : string;
 
-    constructor (private threadService : ThreadService, private urlService : UrlService) {}
+    /**
+     * event for thread id clicking
+     *
+     * @type {EventEmitter}
+     */
+    @Output() threadIdClick: EventEmitter<number> = new EventEmitter();
 
-    public getThreadInfo(id : number) {
 
-        try {
-            this.threadService.getThreadInfoWithJsonp(id)
-                .subscribe(
-                    threadInfo => this.threadInfo = threadInfo,
-                    error => this.errorMessage = <any>error
-                );
-        }  catch (e) {
-            console.error(e);
-        }
+    /**
+     * emit {@link threadIdClick} event when thread id button is clicked.
+     * @param id clicked thread id
+     */
+    public threadIdClicked(id : number) {
+        this.threadIdClick.emit(id);
     }
 
-    public ngOnInit() {
-        this.getThreads();
-        this.serverUrl = this.urlService.getThreadListUrl();
-    }
-
-    private getThreads() {
-
-        try {
-            this.threadService.getThreadsWithJsonp()
-                .subscribe(
-                    threads => this.threads = threads,
-                    error => this.errorMessage = <any>error
-                );
-        } catch (e) {
-            console.error(e);
-        }
-    }
 }
