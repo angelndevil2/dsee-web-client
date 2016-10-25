@@ -1,0 +1,27 @@
+<md-toolbar [color]="toolbarColor">
+
+    <span>
+        <!-- menu opens when trigger button is clicked -->
+        <button md-icon-button [md-menu-trigger-for]="menu">
+            <md-icon>more_vert</md-icon>
+        </button>
+        <md-menu #menu="mdMenu">
+<!--            <a routerLink='/class' md-menu-item routerLinkActive="active">class</a>
+            <a routerLink='/thread' md-menu-item routerLinkActive="active">thread</a>-->
+            <a routerLink='/thread' md-menu-item routerLinkActive="active">thread</a>
+            <a routerLink='/class' md-menu-item routerLinkActive="active">class</a>
+        </md-menu>
+    </span>
+
+    <span>
+        {{title}}
+    </span>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-space"></span>
+    <span>Right Aligned Text</span>
+</md-toolbar>
+<div>
+        <!-- Your content goes here -->
+        <router-outlet></router-outlet>
+</div>

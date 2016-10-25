@@ -1,0 +1,9 @@
+<md-card *ngIf="threads">
+    <md-card-title>Thread Ids from {{serverUrl}}</md-card-title>
+    <md-card-content>
+        <button md-button *ngFor="let thread of threads" (click)="getThreadInfo(thread.id)">{{thread.id}}</button>
+    </md-card-content>
+</md-card>
+
+<thread-info [threadInfo]="threadInfo" *ngIf="threadInfo"></thread-info>
+

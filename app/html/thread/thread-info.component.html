@@ -1,0 +1,46 @@
+<md-card *ngIf="threadInfo">
+
+    <md-card-title>
+        {{threadInfo.name}}(id ={{threadInfo.id}}) {{threadInfo.state}}
+    </md-card-title>
+
+    <md-card-content>
+
+        <div *ngIf="threadInfo.locked_name">
+            <div>lock name : {{threadInfo.lock_name}}</div>
+            <div>lock owner id : {{threadInfo.lock_owner_id}}</div>
+            <div>lock owner name : {{threadInfo.lock_owner_name}}</div>
+        </div>
+
+        <div *ngIf="threadInfo.locked_monitors && threadInfo.locked_monitors.length">
+            <div>locked monitors :
+                <div *ngFor="let mon of threadInfo.locked_monitors">
+                    <div>{{mon.class_name}}@{{mon.hash_code}}</div>
+                    <div>locked stack depth : {{mon.locked_stack_depth}}</div>
+                    <div>locked stack frame : {{mon.locked_stack_frame}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="threadInfo.locked_synchronizers && threadInfo.locked_synchronizers.length">
+            <div>locked synchronizers : <div *ngFor="let sync of threadInfo.locked_synchronizers">{{sync.class_name}}@{{sync.hash_code}}</div></div>
+        </div>
+
+        <div *ngIf="threadInfo.blocked_time > 0">
+            <div>blocked count : {{threadInfo.blocked_count}}</div>
+            <div >blocked time : {{threadInfo.blocked_time}}</div>
+        </div>
+
+        <div *ngIf="threadInfo.waited_time > 0">
+            <div>blocked count : {{threadInfo.waited_count}}</div>
+            <div >blocked time : {{threadInfo.waited_time}}</div>
+        </div>
+
+        <div>in native : {{threadInfo.in_native}}</div>
+        <div>suspended : {{threadInfo.suspended}}</div>
+        <div *ngIf="threadInfo.stack_trace && threadInfo.stack_trace.length">
+            <div>stack trace : <div *ngFor="let trace of threadInfo.stack_trace">{{trace}}</div></div>
+        </div>
+
+    </md-card-content>
+</md-card>
