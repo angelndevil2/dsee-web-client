@@ -4,7 +4,7 @@
 
 import {RouterModule} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {PageNotFoundComponent} from "./PageNotFound.component";
+import {PageNotFoundComponent} from "./page-not-found.component";
 
 @NgModule({
     imports: [

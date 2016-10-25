@@ -14,7 +14,8 @@ import { enableProdMode } from '@angular/core';
 import {AppRoutingModule} from "./app-routing.module";
 import {ThreadModule} from "./thread/thread.module";
 import {ClassModule} from "./class/class.module";
-import {PageNotFoundComponent} from "./PageNotFound.component";
+import {PageNotFoundComponent} from "./page-not-found.component";
+import {ServerNotSetComponent} from "./server-not-set.component";
 import {ServerListService} from "./service/server-list.service";
 import {ThreadService} from "./service/thread.service";
 import {UrlService} from "./service/url.service";
@@ -36,7 +37,7 @@ enableProdMode();
         // equal to RouterModule.forRoot(..., {useHash : true})
         /*{ provide : LocationStrategy, useClass: HashLocationStrategy }*/
     ],
-    declarations: [ AppComponent, PageNotFoundComponent ],
+    declarations: [ AppComponent, PageNotFoundComponent, ServerNotSetComponent ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule {

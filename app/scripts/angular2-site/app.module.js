@@ -21,7 +21,8 @@ var core_3 = require('@angular/core');
 var app_routing_module_1 = require("./app-routing.module");
 var thread_module_1 = require("./thread/thread.module");
 var class_module_1 = require("./class/class.module");
-var PageNotFound_component_1 = require("./PageNotFound.component");
+var page_not_found_component_1 = require("./page-not-found.component");
+var server_not_set_component_1 = require("./server-not-set.component");
 var server_list_service_1 = require("./service/server-list.service");
 var thread_service_1 = require("./service/thread.service");
 var url_service_1 = require("./service/url.service");
@@ -43,7 +44,7 @@ var AppModule = (function () {
             providers: [
                 server_list_service_1.ServerListService, thread_service_1.ThreadService, url_service_1.UrlService, core_2.CookieService
             ],
-            declarations: [app_component_1.AppComponent, PageNotFound_component_1.PageNotFoundComponent],
+            declarations: [app_component_1.AppComponent, page_not_found_component_1.PageNotFoundComponent, server_not_set_component_1.ServerNotSetComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

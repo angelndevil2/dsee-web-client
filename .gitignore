@@ -35,5 +35,6 @@ dist
 .tmp/
 dist/
 npm-debug.log
+app/scripts/angular2-site
 
 

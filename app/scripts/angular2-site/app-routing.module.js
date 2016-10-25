@@ -13,7 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
-var PageNotFound_component_1 = require("./PageNotFound.component");
+var page_not_found_component_1 = require("./page-not-found.component");
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
@@ -21,7 +21,7 @@ var AppRoutingModule = (function () {
         core_1.NgModule({
             imports: [
                 router_1.RouterModule.forRoot([
-                    { path: '**', component: PageNotFound_component_1.PageNotFoundComponent }
+                    { path: '**', component: page_not_found_component_1.PageNotFoundComponent }
                 ], { useHash: true })
             ],
             exports: [
